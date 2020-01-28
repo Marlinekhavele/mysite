@@ -13,16 +13,13 @@ def index(response, id):
                     item.complete = True
                 else:
                     item.complete = False
-
                     item.save()
         elif response.POST.get("newItem"):
             txt = response.POST.get("new")
-
             if len(txt) > 2:
                 ls.item_set.create(text=txt, complete=False)
             else:
                 print("invalid")
-
     return render(response, "polls/list.html", {"ls": ls})
 
 
@@ -37,8 +34,14 @@ def create(response):
             n = form.cleaned_data["name"]
             t = ToDoList(name=n)
             t.save()
+            response.user.todolist.add
+
         return HttpResponseRedirect("/%i" % t.id)
     else:
         form = CreateNewList()
     return render(response, "polls/create.html", {"form": form})
+
+
+def view(response):
+    return render(response, "polls/view.html", {})
 

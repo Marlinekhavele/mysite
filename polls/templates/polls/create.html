@@ -1,22 +1,18 @@
-{% extends "polls/base.html" %}
-
+{% extends 'polls/base.html' %}
 {% block title %}
-
 Create New List
-{% endblock%}
-{% block content %}
+{% endblock %}
 
-<h3>Create Page</h3>
-<form method="POST" action="/create/" class="form-group">
+{% block content %}
+<h3>Create a New To Do List</h3>
+<br>
+<form method="post" , action="/create/" class="form-group">
     {% csrf_token %}
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <button type="submit" , name="save" class="btn btn-success">Create New</button>
+            <button name="save" , type="submit" , class="btn btn-success">Create</button>
         </div>
         {{form.name}}
     </div>
-
-
 </form>
-
-{% endblock%}
+{% endblock %}

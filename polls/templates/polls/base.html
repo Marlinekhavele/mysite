@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <style type="text/css">
+        /* The sidebar menu */
         .sidenav {
             height: 100%;
+            /* Full-height: remove this if you want "auto" height */
             width: 160px;
+            /* Set the width of the sidebar */
             position: fixed;
+            /* Fixed Sidebar (stay in place on scroll) */
             z-index: 1;
+            /* Stay on top */
             top: 0;
+            /* Stay at the top */
             left: 0;
             background-color: #111;
+            /* Black */
             overflow-x: hidden;
+            /* Disable horizontal scroll */
             padding-top: 20px;
         }
 
+        /* The navigation menu links */
         .sidenav a {
             padding: 6px 8px 6px 16px;
             text-decoration: none;
@@ -23,60 +32,56 @@
             display: block;
         }
 
+        /* When you mouse over the navigation links, change their color */
         .sidenav a:hover {
             color: #f1f1f1;
-
         }
 
-        .poll {
+        /* Style page content */
+        .main {
             margin-left: 160px;
+            /* Same as the width of the sidebar */
             padding: 0px 10px;
         }
-    </style>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>{% block title%}ToDo App{% endblock %}</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>{% block title %}ToDo App{% endblock %}</title>
 </head>
 
 <body>
+    <!-- Side navigation -->
     <div class="sidenav">
         <a href="/">Home</a>
-        <a href="/4">View</a>
+        <a href="/view">View</a>
         <a href="/create">Create</a>
     </div>
-    <div id="content" , name="content" , class="poll">
+
+    <!-- Page content -->
+    <div class="main">
         <div class="row justify-content-center">
             <div class="col-8">
-                <h1 class="mt-2">My Site</h1>
+                <h1 class="mt-2">Todo</h1>
                 <hr class="mt-0 mb-4">
-                <!-- {% if user.is_authenticated %} -->
                 {% block content %}
                 {% endblock %}
-                {% else%}
-                <!-- <p>Login <a href="/login"></a>Here</p>
-                {% endif %} -->
-
-
             </div>
-
         </div>
+    </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
 
 </body>
